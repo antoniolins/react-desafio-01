@@ -1,20 +1,20 @@
-import { useState } from 'react'
-import styles from './App.module.css'
-
 
 import { Header } from '../src/components/Header'
 
-function App() {
+import './global.module.css'
+
+import styles from './App.module.css'
+
+import { useState } from 'react'
+import { NewTask } from './components/NewTask'
+
+export function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div>
-    <Header />
-      <div className="App">
-          <h1>Ignite - React desafio 01</h1>
-      </div>
+      <Header />
+      <NewTask />
     </div> 
   )
 }
-
-export default App

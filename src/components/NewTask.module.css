@@ -1,0 +1,118 @@
+.newTask {
+
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+
+    border-radius: 18px; 
+    padding: 0px;
+    gap: 8px;
+
+    position: absolute;
+    width: 536px;
+    height: 54px;
+    top: 173px;
+
+    left: calc(50% - 736px/2);
+
+    background: var(--gray-600);
+
+  }
+
+
+
+/* Button */
+/* Auto layout */
+ .newTask createButton {
+/* 
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center; */
+        padding: 12px;
+        gap: 8px;
+
+        width: 90px;
+        height: 52px;
+
+        background: #1E6F9F;
+        border-radius: 8px;
+
+    /* Inside auto layout */
+
+        flex: none;
+        order: 1;
+        flex-grow: 0; 
+
+        cursor: pointer;
+
+}
+
+.inputTask {
+
+    width: 392px;
+    height: 22px;
+
+    font-family: 'Inter';
+    font-style: normal;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    /* or 22px */
+
+
+    /* Gray 300 */
+
+    color: #808080;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.createButton :hover {
+    background: #4EA8DE;
+    transition: color 0.1s, backgroud-color 0.1s;
+    cursor: pointer;
+
+    transition: background-color 0.1s;
+}
+
+.createButton textCriar {
+    /* Criar */
+
+
+width: 34px;
+height: 20px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 140%;
+/* identical to box height, or 20px */
+
+
+/* Gray 100 */
+
+color: #F2F2F2;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+}
+
+
+
+
+ 
