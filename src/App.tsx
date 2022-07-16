@@ -6,7 +6,7 @@ import './global.module.css'
 import styles from './App.module.css'
 
 import { useState } from 'react'
-import { NewTask } from './components/NewTask'
+import { AddNewTask } from './components/AddNewTask'
 
 export function App() {
   const [count, setCount] = useState(0)
@@ -14,7 +14,7 @@ export function App() {
   return (
     <div>
       <Header />
-      <NewTask />
+      <AddNewTask />
     </div> 
   )
 }
