@@ -1,4 +1,4 @@
-import { PlusCircle , Trash, Check } from 'phosphor-react'
+import { PlusCircle , Trash, Check, RadioButton } from 'phosphor-react'
 import styles from './AddNewTask.module.css'
 
 import Unchecked  from '../assets/Unchecked.svg'
@@ -99,27 +99,28 @@ export function AddNewTask() {
         </div>
 
 
-        <section className='tasklist'>
+        <div className={styles.borderTask}>
             {tasks.length ? (
                 <ul>
                     {tasks.map((task) => (
-                        <li className="title" key={task.id}>
+                        <li className={styles.listItemTask} key={task.id}>
 
-                                <img src={ task.isCompleted ? Checked : Unchecked} alt ="Unchecked" 
+                            <img src={ task.isCompleted ? Checked : Unchecked} alt ="Unchecked" 
                                     onClick={() => handleCheck(task.id)}
-                                />
-
+                                    className={styles.ckeckedBotton}
+                            />
                             <label
                                style={(task.isCompleted) ? { textDecoration: 'line-through' } : null}
                                 onDoubleClick={() => handleCheck(task.id)}>
 
                                 {task.title}
                             </label> 
-
-                            <Trash
-                                onClick={() => handleDelete(task.id)}
-                                role="button"
-                           />
+                             <button className={styles.trashBotton}     
+                                    onClick={() => handleDelete(task.id)} >
+                                 <Trash  size={24} 
+                                  role="button"/>
+                            </button>
+                           
                             
                         </li>
                     ))}
@@ -127,7 +128,7 @@ export function AddNewTask() {
             ) : (
                 <p style={{ marginTop: '2rem' }}>Your list is empty.</p>
             )}
-        </section>
+        </div>
     </main>
     )
 }
