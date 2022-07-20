@@ -121,26 +121,31 @@
 
 .borderTask {
 
-        /* Tasks */
 
-
-    /* Auto layout */
 
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 12px;
 
-    position: absolute;
+    position: relative;
+/*  */
     width: 736px;
-    height: 451px;
+    height: 100%;
     left: calc(50% - 736px/2);
     top: 220px;
 
     border-radius: solid 1px;
     background: var(--gray-500);
+
+    /* padding: 0.5rem 0 0.5rem 0.5rem; */
+     margin: 5rem 1rem;
+
+    align-self: stretch;
 }
+
+
 .listItemTask {
 
     box-sizing: border-box;
@@ -151,10 +156,13 @@
     flex-direction: row;
     align-items: flex-start;
     padding: 16px;
-    gap: 12px;
+    /* gap: 12px; */
 
     width: 736px;
-    height: 72px;
+    height: 62px;
+    margin-top: 0.5rem;
+
+    left: calc(50% - 736px/2);
 
     /* Gray 500 */
 
@@ -167,7 +175,6 @@
 
     /* Inside auto layout */
 
-    flex: none;
     order: 0;
     align-self: stretch;
     flex-grow: 0;
@@ -176,19 +183,25 @@
 
 .ckeckedBotton {
 
+
     /* check */
     width: 24px;
     height: 24px;
+}
 
-    /* Inside auto layout */
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+.inputTitle {
+    flex: 1;
+    flex-wrap: wrap;
 }
 .trashBotton {
+
+    
     background: transparent;
     border: 0;
+
+    /* width: 24px;
+    height: 24px; */
+
 }
 .trashBotton :hover {
     color: var(--red-500);

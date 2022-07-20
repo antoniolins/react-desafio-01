@@ -6,7 +6,7 @@ import Checked  from '../assets/Checked.svg'
 
 
 import {v4 as uuidv4} from 'uuid';
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 
 interface Task {
     id: string,
@@ -30,7 +30,19 @@ export function AddNewTask() {
          }
     ])
 
+    const [countTaskTodo, setTaskTodo] = useState(0);
+    const [countTaskReady, setTaskReady] = useState(0);
+
     const [newTitle, setNewTitle] = useState("");
+
+
+    useEffect(() => {
+
+        setTaskTodo(tasks.length); /* Tarefas Criadas */
+            const taskFinished = tasks.reduce((acc, {isCompleted}) => acc + (isCompleted? 1 : 0), 0);            
+        setTaskReady(taskFinished); /* Tarefas Completadas */
+
+    })
 
     const handleCheck = (id: string) => {
         const listTasks = tasks.map((task) => task.id === id ? { ...task, isCompleted: !task.isCompleted } : task);
@@ -41,7 +53,6 @@ export function AddNewTask() {
     const handleDelete = (id: string) => {
         const listTasks = tasks.filter((task) => task.id !== id);
         setTasks(listTasks);
-     //   localStorage.setItem('shoppinglist', JSON.stringify(listTasks));
     }
 
     const addNewTask = () => {
@@ -49,12 +60,10 @@ export function AddNewTask() {
             isCompleted: false,
             title: newTitle     };
 
-         console.log(newTitle)
         setTasks([ ...tasks, newTask]);
         setNewTitle("")
          
         }
-     //   localStorage.setItem('shoppinglist', JSON.stringify(listTasks));
     
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -87,10 +96,10 @@ export function AddNewTask() {
 
         <footer className={styles.counterTaskLabels}>
                  <div>
-                     <span>Tarefas criadas: 8</span>
+                     <span>Tarefas criadas: {countTaskTodo}</span>
                  </div>
                  <div>
-                     <span>Tarefas concluidas: 4</span>
+                     <span>Tarefas concluidas: {countTaskReady} /  {countTaskTodo}</span>
                  </div>
 
         </footer>
@@ -109,7 +118,7 @@ export function AddNewTask() {
                                     onClick={() => handleCheck(task.id)}
                                     className={styles.ckeckedBotton}
                             />
-                            <label
+                            <label className={styles.inputTitle}
                                style={(task.isCompleted) ? { textDecoration: 'line-through' } : null}
                                 onDoubleClick={() => handleCheck(task.id)}>
 
