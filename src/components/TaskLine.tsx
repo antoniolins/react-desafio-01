@@ -1,11 +1,12 @@
 // ********************************************************************
-// ADICIONAR TAREFAS - REACT DESAFIO 01
+// ROCKETSEAT - PROJETO 01 FUNDAMENTOS DO REACTJS ( Ignite )
+// ADICIONAR TAREFAS - REACT DESAFIO 01 
 // Author: Antonoi Lins
 // Data  : 20/07/2022
+// Repositório: https://github.com/antoniolins/react-desafio-01
 // ******************************************************************** 
-import { PlusCircle , Trash, Check, RadioButton } from 'phosphor-react'
-import { AddTask } from "./AddTask"
-// import styles from './AddTask.module.css'
+import { Trash } from 'phosphor-react'
+// import { AddTask } from "./AddTask"
 
 import styles from './TaskLine.module.css'
 
@@ -33,26 +34,21 @@ interface TaskProps {
 
     return ( 
 
-      
      <li  key={id} >
 
         <div className={styles.containerTask}>
 
             <div className={styles.boxTask}>
-
                 <div>
                     <img  className={styles.checkedButton} src={ isCompleted ? Checked : Unchecked} alt ="Unchecked"
                                  onClick={handleCheckedTask}
                      />
-
                     </div>
                     <div className={styles.showLineTask}>
 
-                          <p className={(isCompleted ? styles.textDecorationOn : styles.textDecorationOff )}>
-
+                        <p className={(isCompleted ? styles.textDecorationOn : styles.textDecorationOff )}>
                              {title}
-                          </p>
-
+                        </p>
                     </div>
             </div>
             <div>

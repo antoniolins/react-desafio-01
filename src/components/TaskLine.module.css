@@ -9,28 +9,19 @@
     align-items: center;
     flex-direction: row;
 
-    padding: 2px;
-
-    width: 736px;
-    height: 100%;
+    width: 736px; 
+    height: 62px;
+    /* height: 100%; */
     left: calc(50% - 736px/2);
     top: 310px;
 
-    border-radius: solid 2px;
-
     gap: 12px;
-
     padding: 16px 8px;
-
-    width: 736px;
-    height: 62px;
     margin-top: 0.5rem;
 
+    background: var(--grey-400);
 
-    background: #262626;
-    /* Gray 400 */
-
-    border: 1px solid #333333;
+    border: 2px solid #333333;
     border-radius: 12px;
 }
 
@@ -42,9 +33,7 @@
     justify-content: start;
     align-content: center;
     align-items: center;
-
-    /* margin-left: 5px; */
-    gap: 24px;
+    gap: 12px;
 }
 
 .checkedButton {   
@@ -66,12 +55,8 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 140%;
-    /* or 20px */
-    
-    
-    /* Gray 100 */
-    
-    color: #F2F2F2;
+
+    color: var(--grey-100);
 }    
 .textDecorationOn {
 
@@ -84,7 +69,6 @@
 }
 
 .trashButton {
-    
 
     margin-right: 5px;
     background: transparent;
@@ -92,9 +76,7 @@
  
     width: 24px;
     height: 24px;
-
     border-radius: 4px;
-
 
 }
 .trashButton :hover {
@@ -116,17 +98,11 @@
     width: 736px;
     height: 244px;
 
-
-    width: 736px;
-    height: 100%;
     left: calc(50% - 736px/2);
     top: 310px;
-    
-    /* Grey 400 */
-    
-    border-top: 1px solid #333333;
+      
+    border-top: 1px solid var(--grey-400);
     border-radius: 8px;
-    
 
 }
 
@@ -140,20 +116,9 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 140%;
-    /* or 22px */
     
-    text-align: center;
-    
-    /* Gray 300 */
-    
-    color: #808080;
-    
-    
-    /* Inside auto layout */
-    
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
+    text-align: center; 
+    color: var(--grey-300);
+
 }
  

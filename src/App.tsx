@@ -1,8 +1,9 @@
 // ********************************************************************
-// CURSO: IGNITE - REACT
-// ADICIONAR TAREFAS - REACT DESAFIO 01
+// ROCKETSEAT - PROJETO 01 FUNDAMENTOS DO REACTJS ( Ignite )
+// ADICIONAR TAREFAS - REACT DESAFIO 01 
 // Author: Antonoi Lins
 // Data  : 20/07/2022
+// Repositório: https://github.com/antoniolins/react-desafio-01
 // ******************************************************************** 
 import { Header } from '../src/components/Header'
 

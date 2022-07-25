@@ -1,18 +1,17 @@
 // ********************************************************************
-// ADICIONAR TAREFAS - REACT DESAFIO 01
+// ROCKETSEAT - PROJETO 01 FUNDAMENTOS DO REACTJS ( Ignite )
+// ADICIONAR TAREFAS - REACT DESAFIO 01 
 // Author: Antonoi Lins
 // Data  : 20/07/2022
+// Repositório: https://github.com/antoniolins/react-desafio-01
 // ******************************************************************** 
 import { PlusCircle , Trash, Check, RadioButton } from 'phosphor-react'
 import styles from './AddTask.module.css'
 
-import Unchecked  from '../assets/Unchecked.svg'
-import Checked  from '../assets/Checked.svg'
 import LogoEmptyTask from '../assets/LogoEmptyTask.svg'
 
-
 import {v4 as uuidv4} from 'uuid';
-import { useState , useEffect , useRef } from 'react';
+import { useState , useEffect , useRef, useDebugValue } from 'react';
 import { TaskLine } from './TaskLine'
 
 interface Task {
@@ -88,6 +87,7 @@ export function AddTask() {
                     required
                     value = {newTitle}
                     onChange = { (e) => setNewTitle(e.target.value)}
+                    onMouseLeave= {() => { setNewTitle("")}}
                 />
 
             <div className={styles.buttonInsertTask}>
@@ -98,7 +98,6 @@ export function AddTask() {
             </div>
         </form>
 
-
         <div className={styles.counterTaskLabels}>
                  <div>
                      <span>Tarefas criadas: {countTaskTodo}</span>
@@ -106,9 +105,8 @@ export function AddTask() {
                  <div>
                      <span>Tarefas concluidas: {countTaskReady} /  {countTaskTodo}</span>
                  </div>
-
         </div>
-        <div className={styles.footLine}>
+        <div className={styles.SplitLineCount}>
                     
         </div>
 
@@ -117,9 +115,10 @@ export function AddTask() {
                 Sub Compoente: TaskLine ( parâmetros passados por props: variáveis e funções(objeto) )
         */}
          
-              {tasks.length ? (  
+            {tasks.length ? (  
                 <div >
                     <ul>
+                            {/* Adiciona item para cada tarefa inserida */}
                             {tasks.map((task) => (
 
                             <TaskLine 
@@ -134,7 +133,8 @@ export function AddTask() {
                             ))}
                     </ul>
                 </div>
-                ) : (
+            ) : (
+                    //  Exibe mensagem caso não exitam tarefas cadastradas
                     <div className={styles.todoEmpty}>
                                     
                         <img src={LogoEmptyTask} 
@@ -149,7 +149,7 @@ export function AddTask() {
                         </div>
         
                     </div>
-                )}
+             )}
                         
 
                 
