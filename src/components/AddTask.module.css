@@ -87,6 +87,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+ 
     padding: 0px;
     gap: 24px;
 
@@ -115,78 +116,6 @@
     top: 293px;
 }
 
-
-.containerTask {
-
-    display: flex;
-    position: relative;
-
-    align-items: center;
- 
-
-    align-content: center;
-
-    gap: 12px;
-
-    
-    width: 736px;
-    height: 100%;
-    left: calc(50% - 736px/2);
-    top: 310px;
-
-    border-radius: solid 2px;
-
-
-}
-
-.lineItemTask {
-
-    
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        align-content: center;
-        justify-content:space-between;
-
-        padding: 16px;
-    
-        width: 736px;
-        height: 62px;
-        margin-top: 0.5rem;
-
-    
-        background: #262626;
-        /* Gray 400 */
-    
-        border: 1px solid #333333;
-        border-radius: 12px;
-            
-    }
-
-    .ckeckedBotton {
-    
-        width: 24px;
-        height: 24px; 
-    }
-    
-    .lineShowTitle {
-
-        flex-wrap: wrap;
-        margin-left: 1rem;
-        flex-flow: row;
-        
-    }
-
-    .trashBotton {
-        
-        background: transparent;
-        border: 0;
-
-    }
-    .trashBotton :hover {
-        color: var(--red-500);
-    }
-    
 .todoEmpty {
 
     /* box-sizing: border-box; */
@@ -213,12 +142,7 @@
     border-top: 1px solid #333333;
     border-radius: 8px;
     
-    /* Inside auto layout */
-    
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
+
 }
 
 .textEmptyTask {

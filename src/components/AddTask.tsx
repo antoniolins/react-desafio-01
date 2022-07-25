@@ -12,7 +12,7 @@ import LogoEmptyTask from '../assets/LogoEmptyTask.svg'
 
 
 import {v4 as uuidv4} from 'uuid';
-import { useState , useEffect } from 'react';
+import { useState , useEffect , useRef } from 'react';
 import { TaskLine } from './TaskLine'
 
 interface Task {
@@ -23,6 +23,8 @@ interface Task {
 
 export function AddTask() {
 
+    const ref = useRef(null);
+
     const [tasks, setTasks] = useState<Array<Task>>([])
 
     const [countTaskTodo, setTaskTodo] = useState(0);
@@ -31,27 +33,33 @@ export function AddTask() {
 
     // Havendo quaisquer Inclusão ou Exclusão de Tarefas implica que haverá renderização
     // momento oportuno para contabilização do númros de tarefas inseridas / completadas
+   
     useEffect(() => {
         setTaskTodo(tasks.length); /* Tarefas Criadas */
             const taskFinished = tasks.reduce((acc, {isCompleted}) => acc + (isCompleted? 1 : 0), 0);            
         setTaskReady(taskFinished); /* Tarefas Completadas */
     })
 
-    const handleCheck = (id: string) => {
+    function onCheckedTask (id: string) {
         const listTasks = tasks.map((task) => task.id === id ? { ...task, isCompleted: !task.isCompleted } : task);
         setTasks(listTasks);
+        const taskFinished = tasks.reduce((acc, {isCompleted}) => acc + (isCompleted? 1 : 0), 0);            
+        setTaskReady(taskFinished); /* Tarefas Completadas */
     }
 
-    const handleDelete = (id: string) => {
+    function onDeleteTask (id: string) {
         const listTasks = tasks.filter((task) => task.id !== id);
         setTasks(listTasks);
+        setTaskTodo(tasks.length); /* Tarefas Criadas */
     }
 
-    const addNewTask = () => { 
+    function addNewTask () { 
          const newTask = { id: uuidv4(), isCompleted: false, title: newTitle};
 
         //  atualizar respeitando a imutabilidade do Hook State
+
          setTasks([ ...tasks, newTask]); 
+         setTaskTodo(tasks.length); /* Tarefas Criadas */
          setNewTitle("")
         }
     
@@ -60,6 +68,10 @@ export function AddTask() {
         console.log("  Subimitted !!!")
         addNewTask();
     }
+    const handleClick = () => {
+        ref.current.focus();
+      };
+
 
     return (
 
@@ -69,6 +81,7 @@ export function AddTask() {
         <form className={styles.formContainer} onSubmit={handleSubmit}>
 
                 <input className={styles.inputTask}
+                    ref={ref}
                     autoFocus
                     type="text" 
                     placeholder='Adicione uma tarefa'
@@ -78,7 +91,7 @@ export function AddTask() {
                 />
 
             <div className={styles.buttonInsertTask}>
-                <button>
+                <button onClick={handleClick}>
                     <strong>Criar</strong>
                     <PlusCircle size={36} />
                 </button>
@@ -114,8 +127,8 @@ export function AddTask() {
                                 id={task.id}
                                 isCompleted={task.isCompleted}
                                 title = {task.title}
-                                handleCheck={handleCheck}
-                                handleDelete={handleDelete}
+                                onCheckedTask={onCheckedTask}
+                                onDeleteTask={onDeleteTask}
                             />
 
                             ))}

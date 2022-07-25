@@ -1,0 +1,159 @@
+
+
+.containerTask {
+
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    padding: 2px;
+
+    width: 736px;
+    height: 100%;
+    left: calc(50% - 736px/2);
+    top: 310px;
+
+    border-radius: solid 2px;
+
+    gap: 12px;
+
+    padding: 16px 8px;
+
+    width: 736px;
+    height: 62px;
+    margin-top: 0.5rem;
+
+
+    background: #262626;
+    /* Gray 400 */
+
+    border: 1px solid #333333;
+    border-radius: 12px;
+}
+
+.boxTask {
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-content: center;
+    align-items: center;
+
+    /* margin-left: 5px; */
+    gap: 24px;
+}
+
+.checkedButton {   
+    
+    width: 24px;
+    height: 24px;
+    width: 24px;
+     height: 24px;
+
+}
+
+.showLineTask {
+
+    width: 632px;
+    height: 24px;
+    
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    /* or 20px */
+    
+    
+    /* Gray 100 */
+    
+    color: #F2F2F2;
+}    
+.textDecorationOn {
+
+    text-decoration:line-through;
+}
+
+.textDecorationOff {
+
+    text-decoration: none;    
+}
+
+.trashButton {
+    
+
+    margin-right: 5px;
+    background: transparent;
+    border: 0;
+ 
+    width: 24px;
+    height: 24px;
+
+    border-radius: 4px;
+
+
+}
+.trashButton :hover {
+        color: var(--red-500);
+}
+    
+.todoEmpty {
+
+    /* box-sizing: border-box; */
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 64px 24px;
+    gap: 16px;
+    
+    width: 736px;
+    height: 244px;
+
+
+    width: 736px;
+    height: 100%;
+    left: calc(50% - 736px/2);
+    top: 310px;
+    
+    /* Grey 400 */
+    
+    border-top: 1px solid #333333;
+    border-radius: 8px;
+    
+
+}
+
+.textEmptyTask {
+
+    width: 688px;
+    height: 44px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 140%;
+    /* or 22px */
+    
+    text-align: center;
+    
+    /* Gray 300 */
+    
+    color: #808080;
+    
+    
+    /* Inside auto layout */
+    
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+ 

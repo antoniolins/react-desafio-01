@@ -5,49 +5,64 @@
 // ******************************************************************** 
 import { PlusCircle , Trash, Check, RadioButton } from 'phosphor-react'
 import { AddTask } from "./AddTask"
-import styles from './AddTask.module.css'
+// import styles from './AddTask.module.css'
+
+import styles from './TaskLine.module.css'
 
 import Unchecked  from '../assets/Unchecked.svg'
 import Checked  from '../assets/Checked.svg'
 import LogoEmptyTask from '../assets/LogoEmptyTask.svg'
 
 interface TaskProps {
-    id: string,
-    isCompleted: boolean,
+    id: string
+    isCompleted: boolean
     title: string
-    handleCheck: any;
-    handleDelete: any
+    onCheckedTask: (comment: string) => void
+    onDeleteTask: (comment: string) => void
 }
 
-    export const TaskLine = ( task: TaskProps )=> {
+ export function TaskLine ( {id, isCompleted, title, onCheckedTask, onDeleteTask}: TaskProps )  {
+
+        function handleDeleteTask() {
+            onDeleteTask(id);
+        }
+
+        function handleCheckedTask() {
+            onCheckedTask(id);
+        }
 
     return ( 
 
-        <li  key={task.id} className={styles.containerTask}>
+      
+     <li  key={id} >
 
-            <div className={styles.lineItemTask}>
+        <div className={styles.containerTask}>
+
+            <div className={styles.boxTask}>
+
                 <div>
-                    <img src={ task.isCompleted ? Checked : Unchecked} alt ="Unchecked" 
-                                            onClick={() => task.handleCheck(task.id)}
-                                            className={styles.ckeckedBotton}
-                    />
-                    <label className={styles.lineShowTitle}
-                                    style={(task.isCompleted) ? { textDecoration: 'line-through' } : null}
-                                        onDoubleClick={() => task.handleCheck(task.id)}>
+                    <img  className={styles.checkedButton} src={ isCompleted ? Checked : Unchecked} alt ="Unchecked"
+                                 onClick={handleCheckedTask}
+                     />
 
-                                        {task.title}
-                    </label> 
-                 </div>
-                 <div>
-                    <button className={styles.trashBotton}     
-                            onClick={() => task.handleDelete(task.id)} >
-                                 <Trash  size={24} 
-                                        // role="button"/>
-                                />
-                    </button>
-                </div>
+                    </div>
+                    <div className={styles.showLineTask}>
+
+                          <p className={(isCompleted ? styles.textDecorationOn : styles.textDecorationOff )}>
+
+                             {title}
+                          </p>
+
+                    </div>
             </div>
-        </li>
+            <div>
+                 <button className={styles.trashButton}     
+                            onClick={handleDeleteTask} title="Delete Task">
+                            <Trash  size={18} 
+                            />
+                 </button>
+            </div>
+        </div>
+    </li>
     )
-
-    }
+}
